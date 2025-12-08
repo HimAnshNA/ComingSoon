@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>coming soon</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        background: #5617fc;
+        background: linear-gradient(
+          135deg,
+          rgba(86, 23, 252, 1) 0%,
+          rgba(154, 46, 231, 1) 100%
+        );
+
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 97vh;
+        flex-direction: column;
+      }
+      .head {
+        font-size: 45px;
+        font-weight: 900;
+        color: white;
+        margin: 0;
+      }
+
+      .subtext {
+        font-size: 30px;
+        font-weight: ;
+        color: white;
+        margin: 10px;
+      }
+      .maindiv {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 80%;
+        gap: 45px;
+      }
+      .subdiv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 90px;
+        width: 85px;
+        background-color: white;
+
+        border-radius: 20px;
+        color: rgb(80, 80, 80);
+      }
+
+      .timenum {
+        font-size: 38px;
+        font-weight: 800;
+      }
+      .timetext {
+        font-size: 15px;
+      }
+      .footer {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 23%;
+        gap: 20px;
+        color: white;
+        border: 2px solid white;
+        border-radius: 25px;
+        font-weight: 600;
+      }
+      a {
+        text-decoration: none;
+        cursor: pointer;
+        color: white;
+        font-weight: 600;
+      }
+      .code {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        width: 90px;
+        color: white;
+        border: 2px solid white;
+        border-radius: 25px;
+        padding: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="head">COMING SOON</p>
+    <p class="subtext">Our website is under construction</p>
+    <div class="maindiv">
+      <div class="subdiv">
+        <div class="timenum" id="days"></div>
+        <div class="timetext">DAYS</div>
+      </div>
+      <div class="subdiv">
+        <div class="timenum" id="hours"></div>
+        <div class="timetext">HOURS</div>
+      </div>
+      <div class="subdiv">
+        <div class="timenum" id="minutes"></div>
+        <div class="timetext">MINUTES</div>
+      </div>
+      <div class="subdiv">
+        <div class="timenum" id="seconds"></div>
+        <div class="timetext">SECONDS</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Follow us for updates
+      <a href="https://www.instagram.com/HimAnshNA">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://github.com/himanshna">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://x.com/HimAnshNA">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+    </div>
+
+    <div class="code"><a href="">View code </a></div>
+
+    <script>
+      const target = new Date(2026, 00, 06, 00, 00, 00).getTime();
+      console.log();
+
+      const dayDisplay = document.getElementById("days");
+      const hoursDisplay = document.getElementById("hours");
+      const minutesDisplay = document.getElementById("minutes");
+      const secondsDisplay = document.getElementById("seconds");
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+
+        let diff = target - now;
+
+        if (diff <= 0) {
+          dayDisplay.textContent = "00";
+          hoursDisplay.textContent = "00";
+          minutesDisplay.textContent = "00";
+          secondsDisplay.textContent = "00";
+          clearInterval(timer);
+          return;
+        }
+
+        let totalSeconds = Math.floor(diff / 1000);
+        let days = Math.floor(totalSeconds / (60 * 60 * 24));
+        let hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+        let minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+        let seconds = totalSeconds % 60;
+
+        dayDisplay.textContent = String(days);
+        hoursDisplay.textContent = String(hours);
+        minutesDisplay.textContent = String(minutes);
+
+        secondsDisplay.textContent = String(seconds);
+      }
+
+      updateCountdown();
+      const timer = setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>
