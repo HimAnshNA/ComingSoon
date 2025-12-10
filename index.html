@@ -229,7 +229,8 @@
     </div>
 
     <script>
-      const target = new Date(2025, 11, 14, 00, 00, 00).getTime();
+      const target = (() => { const t = new Date(); t.setDate(t.getDate() + 4); t.setHours(0,0,0,0); return t.getTime(); })();
+
       console.log();
 
       const dayDisplay = document.getElementById("days");
@@ -269,4 +270,5 @@
     </script>
   </body>
 </html>
+
 
